@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let session = require('express-session')
 const methodOverride = require('method-override')
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -34,13 +35,19 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use(function(req, res, next){
-    console.log(req.cookies.lastMovie);
-  if(req.session.lastMovie !== undefined){
+app.use(function (req, res, next) {
+  console.log(req.cookies.lastMovie);
+  if (req.session.lastMovie !== undefined) {
     res.locals.lastMovie = req.session.lastMovie
   }
   return next()
 })
+
+
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+
 
 
 //Rutas
@@ -55,12 +62,12 @@ app.use('/api/genres', apiGenresRouter);
 
 // catch 404 and forward to error handler
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
