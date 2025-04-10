@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Editar película</h1>
+
+    <%- include('./partials/menu') %>
+ 
+    <p>Form de Edicion</p>
+    <form action="/movies/update/<%= movie.id %>?_method=PUT" method="post">
+      <input type="text" name="title" id="" value="<%= movie.title ? movie.title : null %>" placeholder="Nombre de la película">
+      <input type="number" name="rating" id="" value="<%= movie.rating ? movie.rating : null %>" placeholder="Valoracion">
+      <input type="number" name="awards" id="" value="<%= movie.awards ? movie.awards : null %>" placeholder="Premios">
+      <input type="date" name="release_date" id="" value="<%= release_date ? release_date : null %>" placeholder="Fecha de estreno">
+      <input type="number" name="length" id="" value="<%= movie["length"] ? movie["length"] : null %>" placeholder="Duracion de la pelicula">
+      <button type="submit">Actualizar</button>
+    </form>
+  </body>
+</html>

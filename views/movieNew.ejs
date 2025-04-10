@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Cargar nueva película</h1>
+
+    <%- include('./partials/menu') %>
+ 
+    <p>Form de carga</p>
+    <form action="/movies/create" method="post">
+      <input type="text" name="title" id="" value="" placeholder="Nombre de la película">
+      <input type="number" name="rating" id="" value="" placeholder="Valoracion">
+      <input type="number" name="awards" id="" value="" placeholder="Premios">
+      <input type="date" name="release_date" id="" value="" placeholder="Fecha de estreno">
+      <button type="submit">Guardar</button>
+    </form>
+  </body>
+</html>

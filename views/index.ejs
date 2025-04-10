@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <%- include('./partials/menu') %>
+
+    <% if(locals.lastMovie !== undefined) { %>
+        <p>La película cargada es: <%= locals.lastMovie.title %></p>
+      <% } %>
+   
+    <p>¿Qué estás buscando?</p>
+    <form action="/movies/results" method="get">
+      <input type="text" name="search" id="" value="">
+      <button type="submit">Buscar</button>
+    </form>
+  </body>
+</html>

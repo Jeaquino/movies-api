@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Películas</h1>
+  <p>Estás en la página de películas.</p>
+
+  <%- include('./partials/menu') %>
+
+    <h2>Lista de películas</h2>
+    <ul>
+      <% for(let i=0; i<listaPelis.length ; i++) { %>
+        <a href="/movies/id/<%= listaPelis[i].id %>">
+          <li>
+            <%= listaPelis[i].title %>
+          </li>
+        </a> <a href="/movies/edit/<%=listaPelis[i].id%>">Editar</a>
+        <form action="/movies/delete/<%=listaPelis[i].id%>?_method=DELETE" method="post">
+          <button type="submit">Borrar</button>
+        </form>
+        <% } %>
+    </ul>
+</body>
+
+</html>
