@@ -2,12 +2,7 @@ const { Movie } = require("../../database/models");
 const moviesController = {
   getAllMovies: async (req, res) => {
     try {
-      const movies = await Movie.findAll({
-        include: [
-          { association: "genres" },
-          { association: "actors_in_movie" },
-        ],
-      });
+      
       const { association } = req.query;
 
       let query;
