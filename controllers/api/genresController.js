@@ -3,7 +3,7 @@ const { Genre } = require("../../database/models");
 const genresController = {
   getAll: async (req, res) => {
     try {
-      const genres = await Genre.findAll({ attributes: ["name"] });
+      const genres = await Genre.findAll({ attributes: ["name","id"] });
       return res.json({
         meta: {
           status: 200,

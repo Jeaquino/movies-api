@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const moviesController = require('../../controllers/api/moviesController');
+const {getAllMovies,detail,store,movieDelete} = require('../../controllers/api/moviesController');
 
-router.get('/', moviesController.getAllMovies);
-router.get('/detail/:id', moviesController.detail);
+router
+.get('/', getAllMovies)
+.get('/detail/:id', detail)
+.post('/create', store)
+.delete('/deleteMovie/:id', movieDelete)
+
 
 module.exports = router;
