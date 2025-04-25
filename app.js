@@ -61,7 +61,7 @@ app.use('/movies', moviesRouter);
 app.use('/api/movies', apiMoviesRouter);
 app.use('/api/genres', apiGenresRouter);
 // app.use('/api/series', apiSeriesRouter);
-// app.use('/api/users', apiUsersRouter);
+app.use('/api/users', apiUsersRouter);
 // app.use('/api/episodes', apiEpisodesRouter);
 
 // catch 404 and forward to error handler
